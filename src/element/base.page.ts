@@ -1,13 +1,13 @@
-import { BaseConfig } from '../config/index.js';
+import { Config } from '../config/index.js';
 
 export class BasePage {
-  protected config: BaseConfig;
+  protected config: Config;
 
-  constructor(config: BaseConfig) {
+  constructor(config: Config) {
     this.config = config;
   }
-  
-  url() {
-    return 'https://google.com';
+
+  url(): string {
+    throw new Error("[ERR4002] Method 'BasePage.url()' not implemented yet!");
   }
 }

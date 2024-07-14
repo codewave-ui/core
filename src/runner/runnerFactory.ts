@@ -1,5 +1,5 @@
+import { TestCaseMethod } from '../base.test.js';
 import { Logger } from '../logger/index.js';
-import { TestCaseMethod } from '../type/index.js';
 import { Runner } from './runner.js';
 import { RunnerTestCase } from './testcase.runner.js';
 
@@ -20,13 +20,13 @@ export class RunnerFactory {
     if (this.runner) {
       this.runner.testCases.push(new RunnerTestCase(name, id, method, enabled));
       this.logger.info(`Added test case with name: ${name} [${id}] to runner: ${this.runner.name}`);
-    } else throw new Error('Runner does not exist!');
+    } else throw new Error('[ERR5001] Runner does not exist!');
   }
 
   public getCurrentRunner() {
     if (this.runner) {
       return this.runner;
     }
-    throw new Error('Runner does not exist!');
+    throw new Error('[ERR5001] Runner does not exist!');
   }
 }

@@ -1,4 +1,4 @@
-import { AttrIdSelectorElement } from '../../type/index.js';
+import { AttrIdSelectorElement } from '../index.js';
 import { BaseSelector } from './base.selector.js';
 
 export class AttrIdSelectorElementImpl extends BaseSelector implements AttrIdSelectorElement {

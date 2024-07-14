@@ -1,4 +1,4 @@
-import { TagSelectorElement } from '../../type/index.js';
+import { TagSelectorElement } from '../index.js';
 import { BaseSelector } from './base.selector.js';
 
 export class TagSelectorElementImpl extends BaseSelector implements TagSelectorElement {

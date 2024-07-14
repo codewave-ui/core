@@ -24,7 +24,7 @@ export function TestSuite(name: string, config?: TestSuiteConfig) {
       static runnerFactory = runnerFactory;
       testSuiteName = name;
       testSuiteId = id;
-      logger = loggerFactory.createLogger(id);
+      logger = loggerFactory.createLogger(context.name || 'Unnamed Test Suite');
     };
   };
 }

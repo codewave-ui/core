@@ -1,4 +1,4 @@
-import { TextSelectorElement } from '../../type/index.js';
+import { TextSelectorElement } from '../index.js';
 import { BaseSelector } from './base.selector.js';
 
 export class TextSelectorElementImpl extends BaseSelector implements TextSelectorElement {
@@ -20,7 +20,7 @@ export class TextSelectorElementImpl extends BaseSelector implements TextSelecto
   convertToWdioSelector(): string {
     return `${this._contains ? '.*=' : '='}${this._value}`;
   }
-  
+
   toString(): string {
     return `[${super.toString()} [wdio --> ${this.convertToWdioSelector()}]]`;
   }

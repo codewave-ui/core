@@ -1,6 +1,5 @@
-import { BaseTest } from '../base.test.js';
+import { BaseTest, TestCaseContext } from '../base.test.js';
 import { Logger } from '../logger/index.js';
-import { TestCaseContext } from '../type/index.js';
 
 type TestCaseConfig = {
   id?: string;
@@ -29,13 +28,12 @@ export function TestCase(name: string, config?: TestCaseConfig) {
           `============================== START TEST: ${name} ==============================`,
         );
 
-      const result = await target.call(this, ...args);
+      await target.call(this, ...args);
 
       if (logger)
         logger.info(
           `============================== END TEST: ${name} ==============================`,
         );
-      return result;
     }
 
     context.addInitializer(function () {

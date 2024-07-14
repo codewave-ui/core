@@ -1,4 +1,4 @@
-import { SelectorElement } from '../../type/index.js';
+import { SelectorElement } from '../index.js';
 
 export abstract class BaseSelector {
   protected readonly _value: string;

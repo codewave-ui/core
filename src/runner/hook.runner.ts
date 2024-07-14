@@ -2,32 +2,17 @@ import { DateTime } from 'luxon';
 import { TestStatus } from '../base.test.js';
 import { convertTimeMillisToPrettyString } from '../helper.js';
 
-export class RunnerTestStep {
+export class RunnerHook {
+  private readonly _name: string;
+
   constructor(name: string) {
     this._name = name;
-    this._status = TestStatus.SKIPPED;
-    this._args = {};
     this._duration = '0 second';
+    this._status = TestStatus.SKIPPED;
   }
-
-  private _name: string;
 
   get name(): string {
     return this._name;
-  }
-
-  set name(value: string) {
-    this._name = value;
-  }
-
-  private _args: Record<string, string>;
-
-  get args(): Record<string, string> {
-    return this._args;
-  }
-
-  set args(value: Record<string, string>) {
-    this._args = value;
   }
 
   private _start: number = 0;
@@ -40,10 +25,6 @@ export class RunnerTestStep {
 
   get end(): number {
     return this._end;
-  }
-
-  set end(value: number) {
-    this._end = value;
   }
 
   private _duration: string;

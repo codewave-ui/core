@@ -8,3 +8,4 @@ tsup.config.ts
 eslint.config.mjs
 .idea/
 *.tgz
+.github

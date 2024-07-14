@@ -16,3 +16,7 @@ export function convertTimeMillisToPrettyString(time: number) {
   result += `${durationInstance.seconds} second(s)`;
   return result;
 }
+
+export function assertIsError(error: unknown): asserts error is Error {
+  if (!(error instanceof Error)) throw error;
+}

@@ -1,6 +1,5 @@
-import { BasePage, Element } from '../element/index.js';
+import { BasePage, Element, SelectorElement } from '../element/index.js';
 import { SelectorFactory } from '../element/selector/factory.selector.js';
-import { SelectorElement } from '../type/index.js';
 
 export function FindElement(selectors: SelectorElement[]) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
