@@ -18,7 +18,7 @@ export class Driver {
       this.driverInstance = undefined;
     } else {
       throw new Error(
-        ' [ERR1001] Driver session has been closed. Probably the driver has been crashed or you forgot to initialize it in the first place.',
+        '[ERR1001] Driver session has been closed. Probably the driver has been crashed or you forgot to initialize it in the first place.',
       );
     }
   }

@@ -31,7 +31,7 @@ export function Platform(config?: KeywordPlatformConfig) {
           (this.config.isLitePlatform() && !config?.lite)
         ) {
           throw new Error(
-            `[ERR2001] Failed to execute keyword "${context.name.toString()}"! Keyword can not run on '${this.config.platform}' platform.`,
+            `[ERR2001] Failed to execute keyword '${context.name.toString()}'! Keyword can not run on '${this.config.platform}' platform.`,
           );
         }
 

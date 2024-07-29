@@ -2,6 +2,8 @@ export type ListenerContext = {
   testSuiteName: string;
   testSuiteId: string;
   runner: Runner;
+  Keyword: Keyword;
+  logFolder: string;
 };
 
 export type StepListenerContext = {
@@ -10,6 +12,7 @@ export type StepListenerContext = {
 
 import Emittery from 'emittery';
 import { EventHandlerType } from '../event/index.js';
+import { Keyword } from '../keyword/index.js';
 import { Logger } from '../logger/index.js';
 import { Runner, RunnerTestStep } from '../runner/index.js';
 

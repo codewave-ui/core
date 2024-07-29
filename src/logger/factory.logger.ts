@@ -45,7 +45,7 @@ export class LoggerFactory {
     });
   }
 
-  get logFolder(): string {
+  public get logFolder(): string {
     return this._logFolder;
   }
 
