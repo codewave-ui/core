@@ -28,9 +28,6 @@ export * from './driver/index.js';
 // Error
 export * from './error/index.js';
 
-// Type
-export * from './type/index.js';
-
 // Helper
 export * from './helper.js';
 

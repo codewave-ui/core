@@ -36,4 +36,8 @@ export class Element {
   get defaultSelector(): BaseSelector {
     return this._defaultSelector;
   }
+
+  toString() {
+    return `Object(${this.constructor.name}): ${this._defaultSelector.convertToWdioSelector()}`;
+  }
 }

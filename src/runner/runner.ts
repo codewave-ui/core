@@ -1,22 +1,36 @@
 import { DateTime } from 'luxon';
+import { TestStatus } from '../base.test.js';
 import { Element } from '../element/index.js';
 import { convertTimeMillisToPrettyString } from '../helper.js';
-import { TestStatus } from '../type/index.js';
+import { RunnerHook } from './hook.runner.js';
 import { RunnerTestCase } from './testcase.runner.js';
 
 export class Runner {
+  private readonly _beforeHooks: Array<RunnerHook>;
+  private readonly _afterHooks: Array<RunnerHook>;
+
   constructor(name: string, id: string) {
     this._name = name;
     this._id = id;
     this._testCases = [];
+    this._afterHooks = [];
+    this._beforeHooks = [];
     this._currentTestCaseIndex = 0;
     this._status = TestStatus.SKIPPED;
     this._selfHealingElement = [];
     this._duration = '0 second';
   }
 
+  get beforeHooks(): Array<RunnerHook> {
+    return this._beforeHooks;
+  }
+
+  get afterHooks(): Array<RunnerHook> {
+    return this._afterHooks;
+  }
+
   private _name: string;
-  
+
   get name(): string {
     return this._name;
   }
@@ -41,18 +55,10 @@ export class Runner {
     return this._start;
   }
 
-  set start(value: number) {
-    this._start = value;
-  }
-
   private _end: number = 0;
 
   get end(): number {
     return this._end;
-  }
-
-  set end(value: number) {
-    this._end = value;
   }
 
   private _duration: string;
@@ -91,10 +97,6 @@ export class Runner {
     return this._status;
   }
 
-  set status(value: TestStatus) {
-    this._status = value;
-  }
-
   private _selfHealingElement: Element[];
 
   get selfHealingElement(): Element[] {
@@ -115,5 +117,13 @@ export class Runner {
 
   public generateDuration() {
     this._duration = convertTimeMillisToPrettyString(this._end - this._start);
+  }
+
+  public markAsPassed() {
+    this._status = TestStatus.SUCCESS;
+  }
+
+  public markAsFailed() {
+    this._status = TestStatus.FAILED;
   }
 }

@@ -1,6 +1,6 @@
 import Emittery, { DebugLogger } from 'emittery';
 import { Logger } from '../logger/index.js';
-import { EventHandlerType } from '../type/index.js';
+import { EventHandlerType } from './index.js';
 
 export class EventFactory {
   static generateEventManager(logger: Logger) {

@@ -1,20 +1,33 @@
 import { DateTime } from 'luxon';
+import { TestCaseMethod, TestStatus } from '../base.test.js';
 import { convertTimeMillisToPrettyString } from '../helper.js';
-import { TestCaseMethod, TestStatus } from '../type/index.js';
+import { RunnerHook } from './hook.runner.js';
 import { RunnerTestStep } from './teststep.runner.js';
 
 export class RunnerTestCase {
   private readonly _enabled: boolean;
   private readonly _method: TestCaseMethod;
+  private readonly _beforeHooks: Array<RunnerHook>;
+  private readonly _afterHooks: Array<RunnerHook>;
 
   constructor(name: string, id: string, method: TestCaseMethod, enabled?: boolean) {
     this._name = name;
     this._id = id;
     this._testSteps = [];
+    this._beforeHooks = [];
+    this._afterHooks = [];
     this._method = method;
     this._enabled = enabled === undefined ? true : enabled;
     this._status = TestStatus.SKIPPED;
     this._duration = '0 second';
+  }
+
+  get beforeHooks(): Array<RunnerHook> {
+    return this._beforeHooks;
+  }
+
+  get afterHooks(): Array<RunnerHook> {
+    return this._afterHooks;
   }
 
   private _name: string;
@@ -28,7 +41,7 @@ export class RunnerTestCase {
   }
 
   private _id: string;
-  
+
   get id(): string {
     return this._id;
   }
@@ -43,18 +56,10 @@ export class RunnerTestCase {
     return this._start;
   }
 
-  set start(value: number) {
-    this._start = value;
-  }
-
   private _end: number = 0;
 
   get end(): number {
     return this._end;
-  }
-
-  set end(value: number) {
-    this._end = value;
   }
 
   private _duration: string;
@@ -71,10 +76,6 @@ export class RunnerTestCase {
 
   get status(): TestStatus {
     return this._status;
-  }
-
-  set status(value: TestStatus) {
-    this._status = value;
   }
 
   private _exception?: string;
@@ -125,5 +126,13 @@ export class RunnerTestCase {
 
   public generateDuration() {
     this._duration = convertTimeMillisToPrettyString(this._end - this._start);
+  }
+
+  public markAsPassed() {
+    this._status = TestStatus.SUCCESS;
+  }
+
+  public markAsFailed() {
+    this._status = TestStatus.FAILED;
   }
 }

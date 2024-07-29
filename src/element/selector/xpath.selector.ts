@@ -1,4 +1,4 @@
-import { XpathSelectorElement } from '../../type/index.js';
+import { XpathSelectorElement } from '../index.js';
 import { BaseSelector } from './base.selector.js';
 
 export class XpathSelectorElementImpl extends BaseSelector implements XpathSelectorElement {

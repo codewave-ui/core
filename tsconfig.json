@@ -5,12 +5,12 @@
     "module": "Node16",
     "moduleResolution": "Node16",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "out",
     "types": [
       "node",
       "@wdio/types"
     ],
-    "noImplicitThis": false,
+    "noImplicitThis": false
   },
   "exclude": [
     "node_modules"

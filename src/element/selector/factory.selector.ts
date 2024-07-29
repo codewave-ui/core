@@ -1,4 +1,4 @@
-import { SelectorElement } from '../../type/index.js';
+import { SelectorElement } from '../index.js';
 import { AttrIdSelectorElementImpl } from './attr-id.selector.js';
 import { TagSelectorElementImpl } from './tag.selector.js';
 import { TextSelectorElementImpl } from './text.selector.js';
@@ -23,6 +23,8 @@ export class SelectorFactory {
         return new XpathSelectorElementImpl(value);
       case 'attr:id':
         return new AttrIdSelectorElementImpl(value);
+      case 'custom':
+        return new args[0](value);
     }
   }
 }
