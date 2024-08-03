@@ -55,7 +55,7 @@ export class Keyword
    * @param {(string | BasePage)} target A string representing the url or BasePage instance that
    *                                     contains url() method to be called upon.
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   public async goTo(target: string | BasePage): Promise<void> {
     // Initialize test step object
     const testStep = new RunnerTestStep('goTo');
@@ -121,7 +121,7 @@ export class Keyword
    * @throws {RuntimeError} When the element is not exist or not displayed in the viewport
    * @param {Element} element The element that will be verified
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async verifyElementVisible(element: Element): Promise<void> {
     // Initialize test step object
     const testStep = new RunnerTestStep('verifyElementVisible');
@@ -195,7 +195,7 @@ export class Keyword
    * @throws {RuntimeError} When the element is not exist or not displayed in the viewport
    * @param {Element} element The element that will be verified
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async verifyElementNotVisible(element: Element): Promise<void> {
     // Initialize test step object
     const testStep = new RunnerTestStep('verifyElementNotVisible');
@@ -268,7 +268,7 @@ export class Keyword
    * @returns {Promise<boolean>} Promise object with true means the element is NOT visible in viewport
    *                             and false otherwise
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async waitForElementNotVisible(element: Element, timeout?: number): Promise<boolean> {
     // Initialize test step object
     const testStep = new RunnerTestStep('waitForElementNotVisible');
@@ -348,7 +348,7 @@ export class Keyword
    * @returns {Promise<boolean>} Promise object with true means the element is visible in viewport
    *                             and false otherwise
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async waitForElementVisible(element: Element, timeout?: number): Promise<boolean> {
     // Initialize test step object
     const testStep = new RunnerTestStep('waitForElementVisible');
@@ -466,7 +466,7 @@ export class Keyword
    *                        by another element
    * @param {Element} element The target element for click (tap) event
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async click(element: Element): Promise<void> {
     const testStep = new RunnerTestStep('click');
 
@@ -534,7 +534,7 @@ export class Keyword
    * @since 1.0.0
    * @author Joshua Lauwrich Nandy
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async back(): Promise<void> {
     const testStep = new RunnerTestStep('back');
     try {
@@ -573,7 +573,7 @@ export class Keyword
    * @param {(string | RegExp)} text The expected text to match with element text or a regex
    *                                 instance that will be tested against element text.
    */
-  @Platform({ desktop: true })
+  @Platform({ desktop: true, lite: true })
   async verifyElementText(element: Element, text: string | RegExp): Promise<void> {
     const testStep = new RunnerTestStep('verifyElementText');
     try {
