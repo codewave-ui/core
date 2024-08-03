@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { LoggerFactory } from '../logger/index.js';
-import { RunnerFactory } from '../runner/index.js';
+import { FactoryRunner } from '../runner/index.js';
 
 type TestSuiteConfig = {
   id?: string;
@@ -13,7 +14,7 @@ export function TestSuite(name: string, config?: TestSuiteConfig) {
         : context.name || 'Unnamed Test Suite';
 
     const loggerFactory = new LoggerFactory(id);
-    const runnerFactory = new RunnerFactory(loggerFactory.createLogger('Runner'));
+    const runnerFactory = new FactoryRunner(loggerFactory.createLogger('Runner'));
 
     context.addInitializer(function () {
       runnerFactory.initializeRunner(name, id);

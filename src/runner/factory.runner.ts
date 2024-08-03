@@ -3,7 +3,7 @@ import { Logger } from '../logger/index.js';
 import { Runner } from './runner.js';
 import { RunnerTestCase } from './testcase.runner.js';
 
-export class RunnerFactory {
+export class FactoryRunner {
   private logger: Logger;
   private runner: Runner | undefined;
 
