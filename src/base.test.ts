@@ -4,11 +4,11 @@ import { EventHandlerType } from './event/index.js';
 import { Assert, Keyword } from './keyword/index.js';
 import { BaseListener } from './listener/index.js';
 import { Logger, LoggerFactory } from './logger/index.js';
-import { Runner, RunnerFactory } from './runner/index.js';
+import { FactoryRunner, Runner } from './runner/index.js';
 
 export class BaseTest extends BaseListener {
   static loggerFactory: LoggerFactory;
-  static runnerFactory: RunnerFactory;
+  static runnerFactory: FactoryRunner;
   protected testSuiteName: string = 'Base Test';
   protected testSuiteId: string = '-';
   protected config: Config;

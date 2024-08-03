@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'node:fs';
 import { SelectorElement } from '../element/index.js';
-import { BaseListener } from '../listener/index.js';
+import { RunnerListener } from '../runner/index.js';
 
 export class Config {
   public platform: Platform;
@@ -15,7 +16,7 @@ export class Config {
   public defaultSelector: SelectorElement['name'];
   public isSelfHealingEnable: boolean;
 
-  public listeners: (typeof BaseListener)[];
+  public listeners: RunnerListener<any>[];
 
   constructor(platform: Platform) {
     this.platform = platform;
